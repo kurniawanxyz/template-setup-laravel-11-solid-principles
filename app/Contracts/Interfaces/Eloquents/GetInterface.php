@@ -18,3 +18,4 @@ interface GetInterface
      */
     public function get(): mixed;
 }
+
