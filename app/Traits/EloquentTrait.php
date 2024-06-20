@@ -9,7 +9,7 @@ trait EloquentTrait
      * @param int|string|null $id ID dari model.
      * @return \Illuminate\Database\Eloquent\Model|Collection|\Illuminate\Support\Collection
      */
-    public function get()
+    public function get():mixed
     {
         return $this->model->query()->get();
     }
@@ -20,7 +20,7 @@ trait EloquentTrait
      * @param int|string $id ID atau kunci yang akan digunakan untuk mendapatkan model.
      * @return \Illuminate\Database\Eloquent\Model|null
      */
-    public function show(int|string $id)
+    public function show(int|string $id):mixed
     {
         return $this->model->findOrFail($id);
     }
@@ -31,7 +31,7 @@ trait EloquentTrait
      * @param array $data Data yang akan disimpan.
      * @return \Illuminate\Database\Eloquent\Model
      */
-    public function store(array $data)
+    public function store(array $data):mixed
     {
         return $this->model->create($data);
     }
@@ -43,7 +43,7 @@ trait EloquentTrait
      * @param array      $data Data yang akan diupdate.
      * @return \Illuminate\Database\Eloquent\Model|bool
      */
-    public function update(int|string $id, array $data)
+    public function update(int|string $id, array $data):mixed
     {
         $model = $this->model->findOrFail($id);
         return $model->update($data);
@@ -55,10 +55,9 @@ trait EloquentTrait
      * @param int|string $id ID atau kunci yang akan digunakan untuk menghapus model.
      * @return bool
      */
-    public function delete(int|string $id)
+    public function delete(int|string $id):mixed
     {
-        $model = $this->model->findOrFail($id);
-        return $model->delete();
+        return $$this->model->findOrFail($id)->delete();
     }
 
     /**
@@ -66,7 +65,7 @@ trait EloquentTrait
      *
      * @return mixed Data yang diambil dari sebuah kolom pada model.
      */
-    public function pluck( array $columns)
+    public function pluck( array $columns):mixed
     {
         return $this->model->pluck($columns);
     }
@@ -77,7 +76,7 @@ trait EloquentTrait
      * @param array|string $relations Array atau string nama relasi yang akan di eager load.
      * @return mixed Query builder instance atau model yang telah di eager load.
      */
-    public function with(array|string $relations)
+    public function with(array|string $relations):mixed
     {
         return $this->model->with($relations);
     }
@@ -88,7 +87,7 @@ trait EloquentTrait
      * @param array $columns Array kolom yang akan diambil dari tabel model.
      * @return mixed Query builder instance atau model yang telah di query.
      */
-    public function select(array $columns = ["*"])
+    public function select(array $columns = ["*"]):mixed
     {
         return $this->model->select($columns);
     }
@@ -100,7 +99,7 @@ trait EloquentTrait
      * @param mixed  $value  Nilai yang akan di where.
      * @return mixed Query builder instance atau model yang telah di query.
      */
-    public function where(array $column)
+    public function where(array $column):mixed
     {
         return $this->model->where($column);
     }
@@ -112,7 +111,7 @@ trait EloquentTrait
      * @param array  $values Array nilai yang akan di whereIn.
      * @return mixed Query builder instance atau model yang telah di query.
      */
-    public function whereIn(string $column, array $values)
+    public function whereIn(string $column, array $values):mixed
     {
         return $this->model->whereIn($column, $values);
     }
