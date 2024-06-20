@@ -11,7 +11,18 @@ namespace App\Contracts\Interfaces\Eloquents;
  *
  * @package App\Contracts\Interfaces\Eloquents
  */
-interface BasicInterface extends GetInterface, ShowInterface, StoreInterface, UpdateInterface, DeleteInterface
+interface EloquentInterface extends
+GetInterface,
+ShowInterface,
+StoreInterface,
+UpdateInterface,
+DeleteInterface,
+PluckInterface,
+WithInterface,
+SelectInterface,
+WhereInterface,
+WhereInInterface,
+SearchInterface
 {
 
 }

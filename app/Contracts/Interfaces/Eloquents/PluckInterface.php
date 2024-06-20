@@ -13,8 +13,8 @@ interface PluckInterface
 {
    /**
     * Method pluck() digunakan untuk mengambil kolom pada sebuah model.
-    *
+    * @param array $columns yang akan diambil dari model
     * @return mixed Data yang diambil dari sebuah kolom pada model.
     */
-   public function pluck(): mixed;
+   public function pluck(array $columns): mixed;
 }
